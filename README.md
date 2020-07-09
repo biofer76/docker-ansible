@@ -4,11 +4,11 @@ You can build and use Ansible as Docker container to integrate Ansible tasks and
 
 ## First!
 
-You can download the Ansible Docker image from Docker Hub or build in your local environment from this source.
+You can download the Ansible [Docker image from Docker Hub](https://hub.docker.com/r/devxops/ansible) or build in your local environment from this source.
 
 ## Run
 
-Quick way from Docker hub (for building Docker image go to Build section):
+Quick way, pull image from https://dockerhub.com and start to play (for building skip and go to Build section):
 
 ```
 docker run --rm -t devxops/ansible <ansible command and arguments>
@@ -126,6 +126,6 @@ Check **current Ansible configuration file** by this commands:
 <docker run command> ansible-config view
 ```
 
-# License
+## License
 MIT
 
