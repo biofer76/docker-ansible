@@ -1,0 +1,15 @@
+---
+- name: Ansile on Docker basic test project
+  hosts: dc1
+  gather_facts: True
+  
+  pre_tasks:
+    - name: Display inventory host name
+      debug: 
+        var: inventory_hostname
+    - name: Display NIC-IPv4 information
+      debug: 
+        var: ansible_default_ipv4
+
+  roles:
+    - basic
