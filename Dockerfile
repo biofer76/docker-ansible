@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y upgrade && \
     apt-get install -y --no-install-recommends \
     openssl \
-    openssh-server \
+    openssh-client \ 
     curl \
     apt-transport-https \
     gnupg && \
@@ -22,3 +22,7 @@ RUN mkdir /ansible && mkdir /etc/ansible
 COPY ansible.cfg /etc/ansible/ansible.cfg
 
 WORKDIR /ansible
+
+# Install any additional Python library
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
