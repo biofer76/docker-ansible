@@ -7,8 +7,8 @@
   tasks:
     - name: Print hello
       ansible.builtin.debug:
-        msg: "Ansible funziona! Versione: {{ ansible_version.full }}"
+        msg: "Ansible is working! Version: {{ ansible_version.full }}"
 
-    - name: Mostra OS del container
+    - name: Show OS of the container
       ansible.builtin.debug:
-        msg: "Sistema: {{ ansible_os_family }} - {{ ansible_distribution }}"
+        msg: "OS: {{ ansible_os_family }} - {{ ansible_distribution }}"
