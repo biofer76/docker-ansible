@@ -3,7 +3,6 @@ name: Build and Push Docker Image
 on:
   push:
     branches: [main]
-    tags: ["v*"]
   schedule:
     - cron: "0 3 * * 1"
   workflow_dispatch:
@@ -14,6 +13,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+
+      - name: Get Ansible version
+        id: ansible_version
+        run: echo "version=$(grep 'ARG ANSIBLE_VERSION' Dockerfile | cut -d'"' -f2)" >> $GITHUB_OUTPUT
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v4
@@ -28,8 +31,7 @@ jobs:
           images: particles/ansible
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
-            type=schedule,pattern=weekly
-            type=semver,pattern={{version}}
+            type=raw,value=${{ steps.ansible_version.outputs.version }}
 
       - name: Build and push
         uses: docker/build-push-action@v7

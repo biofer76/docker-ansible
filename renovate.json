@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "schedule": ["before 6am on monday"],
+  "regexManagers": [
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["ARG ANSIBLE_VERSION=\"(?<currentValue>[^\"]+)\""],
+      "depNameTemplate": "ansible-core",
+      "datasourceTemplate": "pypi"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchFileNames": ["Dockerfile"],
+      "groupName": "dockerfile dependencies",
+      "automerge": false
+    }
+  ]
+}
