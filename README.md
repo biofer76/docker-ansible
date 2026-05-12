@@ -65,6 +65,7 @@ docker pull particles/ansible:v2.20.0
 
 - `openssh-client`, `sshpass` - SSH connectivity
 - `git`, `rsync` - file transfer and role dependencies
+- `ansible-core` - core Ansible engine
 - `ansible-lint` - playbook linting
 - `jmespath` - JSON filtering with `json_query`
 
