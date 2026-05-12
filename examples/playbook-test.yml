@@ -11,4 +11,4 @@
 
     - name: Show OS of the container
       ansible.builtin.debug:
-        msg: "OS: {{ ansible_os_family }} - {{ ansible_distribution }}"
+        msg: "OS: {{ ansible_facts['os_family'] }} - {{ ansible_facts['distribution'] }}"
