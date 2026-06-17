@@ -94,15 +94,14 @@ environment:
 
 ## Image tags
 
-| Tag      | Description                                  |
-| -------- | -------------------------------------------- |
-| `latest` | Latest build from the `main` branch          |
-| `weekly` | Rebuilt weekly to pick up dependency updates |
-| `vX.Y.Z` | Pinned release (e.g. `v2.20.0`)              |
+| Tag      | Description                                       |
+| -------- | ------------------------------------------------- |
+| `latest` | Latest build, rebuilt weekly and on every push    |
+| `X.Y`    | Pinned ansible-core version (e.g. `2.20`)         |
 
 ```bash
 docker pull particles/ansible:latest
-docker pull particles/ansible:v2.20.0
+docker pull particles/ansible:2.20
 ```
 
 ## Included packages
