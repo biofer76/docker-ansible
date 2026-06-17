@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-
-IMAGE="${ANSIBLE_IMAGE:-particles/ansible:latest}"
-
-docker run --rm -it \
-  -v "${HOME}/.ansible":/root/.ansible \
-  --entrypoint ansible-galaxy \
-  "${IMAGE}" "$@"

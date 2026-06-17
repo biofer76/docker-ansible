@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# Usage: ./ansible.sh site.yml -i inventory/hosts
 set -euo pipefail
 
 IMAGE="${ANSIBLE_IMAGE:-particles/ansible:latest}"
 
-docker run --rm -it \
+[[ -t 0 ]] && TTY_FLAG="-it" || TTY_FLAG="-i"
+
+docker run --rm ${TTY_FLAG} \
   -v "$(pwd)":/ansible \
   -v "${HOME}/.ssh":/root/.ssh:ro \
   -v "${HOME}/.ansible":/root/.ansible \
-  -e ANSIBLE_HOST_KEY_CHECKING="${ANSIBLE_HOST_KEY_CHECKING:-False}" \
   --network host \
   "${IMAGE}" "$@"

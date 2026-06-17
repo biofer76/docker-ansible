@@ -6,6 +6,4 @@ services:
       - .:/ansible
       - ~/.ssh:/root/.ssh:ro
       - ~/.ansible:/root/.ansible
-    environment:
-      - ANSIBLE_HOST_KEY_CHECKING=False
     network_mode: host
